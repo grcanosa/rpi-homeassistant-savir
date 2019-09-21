@@ -1,0 +1,15 @@
+zigbee:
+  name: Zigbee
+  control: hidden
+  entities:
+    - input_select.zigbee2mqtt_log_level
+    - input_text.zigbee2mqtt_new_name
+    - input_text.zigbee2mqtt_old_name
+    - input_text.zigbee2mqtt_remove
+    - script.zigbee2mqtt_remove
+    - script.zigbee2mqtt_rename
+    - sensor.coordinator_version
+    - sensor.zigbee2mqtt_bridge_state
+    - sensor.zigbee2mqtt_version
+    - switch.zigbee2mqtt_main_join
+    - timer.zigbee_permit_join
