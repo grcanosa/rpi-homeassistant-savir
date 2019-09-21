@@ -16,8 +16,7 @@ homeassistant:
   packages:
     zigbee2mqtt: !include zigbee2mqtt.yaml
 
-# Show links to resources in log and frontend
-introduction:
+
 
 # Enables the frontend
 frontend:
