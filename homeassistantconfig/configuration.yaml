@@ -79,7 +79,7 @@ mqtt:
 
 telegram_bot:
   - platform: broadcast
-    api_key: !secret savirbotbot_apikey
+    api_key: !secret savirbot_apikey
     allowed_chat_ids:
       - !secret grcanosa_chatid
 
