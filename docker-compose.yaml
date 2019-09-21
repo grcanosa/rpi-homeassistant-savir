@@ -26,5 +26,19 @@ services:
     volumes:
       - "./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf"
       - "./mosquitto/data:/mosquitto/data"
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/raspberrypi3-homeassistant:0.98.0
+    volumes:
+      - ./homeassistantconfig:/config
+      - /etc/localtime:/etc/localtime:ro
+      # - ./sslcert:/sslcert
+    #restart: always
+    network_mode: host
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
+        max-file: "3"
       
 
