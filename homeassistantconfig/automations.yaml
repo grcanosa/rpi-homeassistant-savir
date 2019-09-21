@@ -9,6 +9,5 @@
   condition: []
   action:
   - data:
-      message: "{% if is_state('binary_sensor.maindoor', 'on') %}\n     RIVAS => Movimiento puerta cocina\
-        \n{% else %}\n     RIVAS => Puerta cerrada\n{% endif %} \n"
+      message: "RIVAS => Movimiento en puerta cocina"
     service: notify.bot_to_grcanosa
