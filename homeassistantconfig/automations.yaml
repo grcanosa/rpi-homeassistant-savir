@@ -1,1 +1,14 @@
-[]
+- id: 'presencia_cocina'
+  alias: Notificafion Presencia Cocina
+  trigger:
+  - entity_id: binary_sensor.zigbee_puerta_cocina
+    for: 00:00:01
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: "{% if is_state('binary_sensor.maindoor', 'on') %}\n     RIVAS => Movimiento puerta cocina\
+        \n{% else %}\n     RIVAS => Puerta cerrada\n{% endif %} \n"
+    service: notify.bot_to_grcanosa

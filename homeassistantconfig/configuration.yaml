@@ -76,3 +76,16 @@ mqtt:
   will_message:
     topic: 'hass/status'
     payload: 'offline'
+
+telegram_bot:
+  - platform: broadcast
+    api_key: !secret savirbotbot_apikey
+    allowed_chat_ids:
+      - !secret grcanosa_chatid
+
+
+notify:
+  - name: bot_to_grcanosa
+    platform: telegram
+    chat_id: !secret grcanosa_chatid
+
