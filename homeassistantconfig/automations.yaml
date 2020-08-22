@@ -10,4 +10,37 @@
   action:
   - data:
       message: "RIVAS => Movimiento en puerta cocina"
-    service: notify.bot_to_grcanosa
+    service: notify.bot_to_rivas_group
+
+- id: 'presencia_entrada'
+  alias: Notificafion Presencia Entrada
+  trigger:
+  - entity_id: binary_sensor.0x00158d00034fb778_occupancy
+    for: 00:00:01
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: "RIVAS => Movimiento en puerta entrada"
+    service: notify.bot_to_rivas_group    
+- id: '1548543806868_2'
+  alias: Notificafion Puerta Cocina
+  trigger:
+  - entity_id: binary_sensor.0x00158d0003d0c052_contact
+    for: 00:00:01
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.0x00158d0003d0c052_contact
+    for: 00:00:01
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      message: "{% if is_state('binary_sensor.0x00158d0003d0c052_contact', 'on') %}\n    RIVAS => Puerta cocina\
+        \ abierta\n{% else %}\n     RIVAS => Puerta cocina cerrada\n{% endif %} \n"
+    service: notify.bot_to_rivas_group

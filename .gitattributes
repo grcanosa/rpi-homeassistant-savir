@@ -1,3 +1,4 @@
 #pattern  filter=crypt diff=crypt
 homeassistantconfig/secrets.yaml  filter=crypt diff=crypt
 zigbee2mqtt/data/database.db   filter=crypt diff=crypt
+duckdns/token     filter=crypt diff=crypt

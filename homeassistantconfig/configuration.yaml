@@ -82,10 +82,11 @@ telegram_bot:
     api_key: !secret savirbot_apikey
     allowed_chat_ids:
       - !secret grcanosa_chatid
+      - !secret rivas_group_chatid
 
 
 notify:
-  - name: bot_to_grcanosa
+  - name: bot_to_rivas_group
     platform: telegram
-    chat_id: !secret grcanosa_chatid
+    chat_id: !secret rivas_group_chatid
 
