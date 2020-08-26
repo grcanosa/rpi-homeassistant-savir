@@ -44,3 +44,23 @@
       message: "{% if is_state('binary_sensor.0x00158d0003d0c052_contact', 'on') %}\n    RIVAS => Puerta cocina\
         \ abierta\n{% else %}\n     RIVAS => Puerta cocina cerrada\n{% endif %} \n"
     service: notify.bot_to_rivas_group
+
+- id: '1548543806868_3'
+  alias: Notificafion Puerta Entrada
+  trigger:
+  - entity_id: binary_sensor.0x00158d00032614ea_contact
+    for: 00:00:01
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.0x00158d00032614ea_contact
+    for: 00:00:01
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      message: "{% if is_state('binary_sensor.0x00158d00032614ea_contact', 'on') %}\n    RIVAS => Puerta entrada\
+        \ abierta\n{% else %}\n     RIVAS => Puerta entrada cerrada\n{% endif %} \n"
+    service: notify.bot_to_rivas_group

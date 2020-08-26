@@ -16,7 +16,11 @@ devices:
       - 60
     occupancy_timeout: 65
   '0x00158d00034fb778':
-    friendly_name: 'movimiento_entrada'
-    no_occupancy_since: [60]
+    friendly_name: movimiento_entrada
+    no_occupancy_since:
+      - 60
     occupancy_timeout: 65
+    retain: false
+  '0x00158d00032614ea':
+    friendly_name: 'apertura_entrada'
     retain: false
