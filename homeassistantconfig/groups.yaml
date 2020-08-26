@@ -1,6 +1,6 @@
 entrada:
   name: Entrada
-  control: hidden
+  #control: hidden
   entities:
     - binary_sensor.0x00158d00034fb778_occupancy
     - binary_sensor.0x00158d00032614ea_contact
@@ -10,10 +10,10 @@ entrada:
     - sensor.0x00158d00032614ea_linkquality
 cocina:
   name: Cocina
-  control: hidden
+  #control: hidden
   entities:
-    - binary_sensor.0x00158d0003d0c052_contact
     - binary_sensor.zigbee_puerta_cocina
+    - binary_sensor.0x00158d0003d0c052_contact
     - sensor.0x00158d0003d0c052_battery
     - sensor.0x00158d0003d0c052_linkquality
     - sensor.0x00158d0003f4772c_illuminance
@@ -22,7 +22,7 @@ cocina:
     
 zigbee:
   name: Zigbee
-  control: hidden
+  #control: hidden
   entities:
     - input_select.zigbee2mqtt_log_level
     - input_text.zigbee2mqtt_new_name

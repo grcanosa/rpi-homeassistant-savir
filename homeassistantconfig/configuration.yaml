@@ -90,3 +90,8 @@ notify:
     platform: telegram
     chat_id: !secret rivas_group_chatid
 
+input_boolean:
+  notify_telegram:
+    name: Activacion Notificaciones
+    icon: mdi:cellphone-message
+
