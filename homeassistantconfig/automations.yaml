@@ -12,7 +12,7 @@
     state: 'on'
   action:
   - data:
-      message: "RIVAS => Movimiento en puerta cocina"
+      message: "Movimiento en puerta cocina"
     service: notify.bot_to_rivas_group
 
 - id: 'presencia_entrada'
@@ -29,7 +29,7 @@
     state: 'on'
   action:
   - data:
-      message: "RIVAS => Movimiento en puerta entrada"
+      message: "Movimiento en puerta entrada"
     service: notify.bot_to_rivas_group    
 - id: '1548543806868_2'
   alias: Notificafion Puerta Cocina
@@ -50,8 +50,8 @@
     state: 'on'
   action:
   - data:
-      message: "{% if is_state('binary_sensor.0x00158d0003d0c052_contact', 'on') %}\n    RIVAS => Puerta cocina\
-        \ abierta\n{% else %}\n     RIVAS => Puerta cocina cerrada\n{% endif %} \n"
+      message: "{% if is_state('binary_sensor.0x00158d0003d0c052_contact', 'on') %}\n Puerta cocina abierta\
+      \n{% else %}\n Puerta cocina cerrada\n{% endif %} \n"
     service: notify.bot_to_rivas_group
 
 - id: '1548543806868_3'
@@ -73,8 +73,8 @@
     state: 'on'
   action:
   - data:
-      message: "{% if is_state('binary_sensor.0x00158d00032614ea_contact', 'on') %}\n    RIVAS => Puerta entrada\
-        \ abierta\n{% else %}\n     RIVAS => Puerta entrada cerrada\n{% endif %} \n"
+      message: "{% if is_state('binary_sensor.0x00158d00032614ea_contact', 'on') %}\n Puerta entrada abierta\
+        \n{% else %}\n Puerta entrada cerrada\n{% endif %} \n"
     service: notify.bot_to_rivas_group
     
 - id: '1548543806868_4'
@@ -93,13 +93,13 @@
   condition: []
   action:
   - data:
-      message: "{% if is_state('input_boolean.notify_telegram', 'on') %}\n    RIVAS => Notificaciones activadas
-        \ \n{% else %}\n     RIVAS => Notificaciones desactivadas\n{% endif %} \n"
+      message: "{% if is_state('input_boolean.notify_telegram', 'on') %}\n Notificaciones activadas 🔔
+      \ \n{% else %}\n Notificaciones desactivadas 🔕\n{% endif %} \n"
     service: notify.bot_to_rivas_group
 - id: '1569690957862_44'
   alias: Boton Activar notificaciones
   trigger:
-  - entity_id: sensor.zigbee_button
+  - entity_id: sensor.0x00158d000374adb8_click
     platform: state
     to: single
 #  - entity_id: sensor.zigbee_button
@@ -116,7 +116,7 @@
 #    to: long_release
   condition: []
   action:
-   - service: input_boolean.toogle
+   - service: input_boolean.toggle
      data:
        entity_id: input_boolean.notify_telegram
 #  - data_template:

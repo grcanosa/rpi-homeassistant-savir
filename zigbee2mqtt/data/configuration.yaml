@@ -13,14 +13,20 @@ devices:
     friendly_name: movimiento_cocina
     retain: false
     no_occupancy_since:
+      - 10
       - 60
+      - 70
     occupancy_timeout: 65
   '0x00158d00034fb778':
     friendly_name: movimiento_entrada
     no_occupancy_since:
+      - 10
       - 60
+      - 70
     occupancy_timeout: 65
     retain: false
   '0x00158d00032614ea':
-    friendly_name: 'apertura_entrada'
+    friendly_name: apertura_entrada
     retain: false
+  '0x00158d000374adb8':
+    friendly_name: 'boton'
