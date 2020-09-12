@@ -76,6 +76,32 @@
       message: "{% if is_state('binary_sensor.0x00158d00032614ea_contact', 'on') %}\n Puerta entrada abierta\
         \n{% else %}\n Puerta entrada cerrada\n{% endif %} \n"
     service: notify.bot_to_rivas_group
+- id: '1548543806868_99'
+  alias: Notificafion No Movimiento Entrada
+  trigger:
+  - entity_id: sensor.tiempo_sin_movimiento_entrada
+    for: 00:00:01
+    #from: 'off'
+    platform: state
+    to: '90'
+  condition: []
+  action:
+  - data:
+      message: "Entrada sin movimiento más de 30s"
+    service: notify.bot_to_rivas_group
+    
+- id: '1548543806868_79'
+  alias: Notificafion No Movimiento Cocina
+  trigger:
+  - entity_id: sensor.tiempo_sin_movimiento_cocina
+    for: 00:00:01
+    platform: state
+    to: '90'
+  condition: []
+  action:
+  - data:
+      message: "Cocina sin movimiento más de 30s"
+    service: notify.bot_to_rivas_group
     
 - id: '1548543806868_4'
   alias: Notificafion Activacion Notificaciones

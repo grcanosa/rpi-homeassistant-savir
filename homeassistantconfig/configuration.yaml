@@ -123,7 +123,7 @@ sensor:
     
     
 lovelace:
-  mode: yaml
+  mode: storage
   resources:
     - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
       type: module
@@ -134,3 +134,15 @@ lovelace:
       icon: mdi:home
       show_in_sidebar: true
       filename: lovelace.yaml    
+
+ffmpeg:
+
+camera:
+  - platform: generic
+    still_image_url: http://192.168.1.250/tmpfs/auto.jpg
+    stream_source: rtsp://192.168.1.250:554/11
+    name: entrada_cocina
+    username: !secret camera_entrada_cocina_user
+    password: !secret camera_entrada_cocina_password
+
+

@@ -1,18 +1,39 @@
 title: Casa
 views:
-  - badges:
-      - entity: binary_sensor.updater
+  - badges: []
+#      - type: state-badge
+#        entity: binary_sensor.0x00158d00034fb778_occupancy
+#      - entity: binary_sensor.0x00158d00032614ea_contact
+#      - entity: binary_sensor.zigbee_puerta_cocina
+#      - entity: binary_sensor.0x00158d0003d0c052_contact
     cards:
-      - entity: input_boolean.notify_telegram
-        hold_action:
-          action: more-info
-        icon_height: 40px
-        show_icon: true
-        show_name: true
+      - type: glance
+        entities:
+          - entity: binary_sensor.zigbee_puerta_cocina
+            name: Cocina
+          - entity: binary_sensor.0x00158d0003d0c052_contact
+            name: Cocina
+          - entity: binary_sensor.0x00158d00034fb778_occupancy
+            name: Entrada
+          - entity: binary_sensor.0x00158d00032614ea_contact
+            name: Entrada
+          - entity: input_boolean.notify_telegram
+            name: Telegram
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info  
         show_state: false
-        tap_action:
-          action: toggle
-        type: button
+#      - entity: input_boolean.notify_telegram
+#        hold_action:
+#          action: more-info
+#        icon_height: 40px
+#        show_icon: true
+#        show_name: true
+#        show_state: false
+#        tap_action:
+#          action: toggle
+#        type: button
       - entities:
           - entity: binary_sensor.0x00158d00034fb778_occupancy
           - entity: sensor.tiempo_sin_movimiento_entrada
@@ -23,8 +44,12 @@ views:
           - entity: sensor.0x00158d00034fb778_battery
         show_header_toggle: false
         title: Entrada
-        state_color: null
+        state_color: true
         type: entities
+      - type: picture-glance
+        title: Cocina
+        entities: []
+        camera_image: camera.entrada_cocina
       - entities:
           - entity: binary_sensor.zigbee_puerta_cocina
           - entity: sensor.tiempo_sin_movimiento_cocina
@@ -37,6 +62,7 @@ views:
         show_header_toggle: false
         title: Cocina
         type: entities
+        state_color: true
       - entity: weather.casa
         type: weather-forecast
       - entities:
