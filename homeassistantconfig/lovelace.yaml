@@ -9,21 +9,68 @@ views:
     cards:
       - type: glance
         entities:
-          - entity: binary_sensor.zigbee_puerta_cocina
-            name: Cocina
-          - entity: binary_sensor.0x00158d0003d0c052_contact
-            name: Cocina
-          - entity: binary_sensor.0x00158d00034fb778_occupancy
-            name: Entrada
-          - entity: binary_sensor.0x00158d00032614ea_contact
-            name: Entrada
+          #- entity: binary_sensor.zigbee_puerta_cocina
+          #  name: Cocina
+          #- entity: binary_sensor.0x00158d0003d0c052_contact
+          #  name: Cocina
+          #- entity: binary_sensor.0x00158d00034fb778_occupancy
+          #  name: Entrada
+          #- entity: binary_sensor.0x00158d00032614ea_contact
+          #  name: Entrada
           - entity: input_boolean.notify_telegram
             name: Telegram
             tap_action:
               action: toggle
             hold_action:
+              action: more-info
+          - entity: input_boolean.fuera_de_casa
+            name: Fuera de Casa
+            tap_action:
+              action: toggle
+            hold_action:
               action: more-info  
         show_state: false
+      - type: picture-elements
+        elements:
+        - type: state-icon
+          entity: binary_sensor.0x00158d0003d0c052_contact
+          style:
+            top: 50.5%
+            left: 8%
+        - type: state-icon
+          entity: binary_sensor.zigbee_puerta_cocina
+          style:
+            top: 58%
+            left: 8%
+        - type: state-icon
+          entity: binary_sensor.0x00158d00032614ea_contact
+          style:
+            top: 95%
+            left: 53%
+        - type: state-icon
+          entity: binary_sensor.0x00158d00034fb778_occupancy
+          style:
+            top: 96%
+            left: 59%    
+        - type: image #state-icon
+          entity: camera.entrada_casa
+          title: ""
+          camera_image: camera.entrada_casa
+          style:
+            top: 66%
+            left: 54%
+      #width: 20%
+        - type: state-icon
+          entity: camera.entrada_cocina
+          title: ""
+          camera_image: camera.entrada_cocina
+          style:
+            top: 45%
+            left: 10%
+            width: 10%
+      #width: 20%    
+    
+        image: /local/mapa_rivas.png
 #      - entity: input_boolean.notify_telegram
 #        hold_action:
 #          action: more-info
@@ -34,22 +81,35 @@ views:
 #        tap_action:
 #          action: toggle
 #        type: button
-      - entities:
-          - entity: binary_sensor.0x00158d00034fb778_occupancy
-          - entity: sensor.tiempo_sin_movimiento_entrada
-          - entity: binary_sensor.0x00158d00032614ea_contact
-          - entity: sensor.0x00158d00034fb778_linkquality
-          - entity: sensor.0x00158d00032614ea_linkquality
-          - entity: sensor.0x00158d00032614ea_battery
-          - entity: sensor.0x00158d00034fb778_battery
-        show_header_toggle: false
-        title: Entrada
-        state_color: true
-        type: entities
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Automatizaciones
+        filter:
+          include:
+          - domain: automation  
       - type: picture-glance
         title: Cocina
-        entities: []
+        entities: 
+        - binary_sensor.0x00158d0003d0c052_contact
+        - binary_sensor.zigbee_puerta_cocina
         camera_image: camera.entrada_cocina
+      - type: picture-glance
+        title: Entrada
+        entities: 
+        - binary_sensor.0x00158d00032614ea_contact
+        - binary_sensor.0x00158d00034fb778_occupancy
+        camera_image: camera.entrada_casa  
+      - entity: weather.casa
+        type: weather-forecast
+#      - type: glance
+#        entities:
+#          - entity: binary_sensor.zigbee_puerta_cocina
+#          - entity: binary_sensor.0x00158d00032614ea_contact
+    path: default_view
+    title: Home
+  - badges: []
+    cards:
       - entities:
           - entity: binary_sensor.zigbee_puerta_cocina
           - entity: sensor.tiempo_sin_movimiento_cocina
@@ -62,24 +122,25 @@ views:
         show_header_toggle: false
         title: Cocina
         type: entities
+      - entities:
+          - entity: binary_sensor.0x00158d00034fb778_occupancy
+          - entity: sensor.tiempo_sin_movimiento_entrada
+          - entity: binary_sensor.0x00158d00032614ea_contact
+          - entity: sensor.0x00158d00034fb778_linkquality
+          - entity: sensor.0x00158d00032614ea_linkquality
+          - entity: sensor.0x00158d00032614ea_battery
+          - entity: sensor.0x00158d00034fb778_battery
+        show_header_toggle: false
+        title: Entrada
         state_color: true
-      - entity: weather.casa
-        type: weather-forecast
+        type: entities
       - entities:
           - entity: sensor.0x00158d000374adb8_click
           - entity: sensor.0x00158d000374adb8_action
           - entity: sensor.0x00158d000374adb8_battery
           - entity: sensor.0x00158d000374adb8_linkquality
         title: Boton
-        type: entities
-#      - type: glance
-#        entities:
-#          - entity: binary_sensor.zigbee_puerta_cocina
-#          - entity: binary_sensor.0x00158d00032614ea_contact
-    path: default_view
-    title: Home
-  - badges: []
-    cards:
+        type: entities  
       - entities:
           - input_select.zigbee2mqtt_log_level
           - input_text.zigbee2mqtt_new_name

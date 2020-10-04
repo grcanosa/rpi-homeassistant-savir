@@ -14,6 +14,14 @@
   - data:
       message: "Movimiento en puerta cocina"
     service: notify.bot_to_rivas_group
+  - data:
+      message: "Foto"
+      data:
+        photo:
+        - url: http://192.168.1.251/tmps/auto.jpg
+          username: !secret camera_entrada_cocina_user
+          password: !secret camera_entrada_cocina_password
+    service: notify.bot_to_rivas_group  
 
 - id: 'presencia_entrada'
   alias: Notificafion Presencia Entrada
@@ -30,6 +38,14 @@
   action:
   - data:
       message: "Movimiento en puerta entrada"
+    service: notify.bot_to_rivas_group  
+  - data:
+      message: "Foto"
+      data:
+        photo:
+        - url: http://192.168.1.252/tmps/auto.jpg
+          username: !secret camera_entrada_casa_user
+          password: !secret camera_entrada_casa_password
     service: notify.bot_to_rivas_group    
 - id: '1548543806868_2'
   alias: Notificafion Puerta Cocina
@@ -84,7 +100,10 @@
     #from: 'off'
     platform: state
     to: '90'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: input_boolean.notify_telegram
+    state: 'on'
   action:
   - data:
       message: "Entrada sin movimiento más de 30s"
@@ -97,7 +116,10 @@
     for: 00:00:01
     platform: state
     to: '90'
-  condition: []
+  condition: 
+  - condition: state
+    entity_id: input_boolean.notify_telegram
+    state: 'on'
   action:
   - data:
       message: "Cocina sin movimiento más de 30s"

@@ -94,6 +94,9 @@ input_boolean:
   notify_telegram:
     name: Activacion Notificaciones
     icon: mdi:cellphone-message
+  fuera_de_casa:
+    name: Fuera de Casa
+    icon: mdi:home-alert  
 
 sensor:
   - platform: mqtt
@@ -144,5 +147,11 @@ camera:
     name: entrada_cocina
     username: !secret camera_entrada_cocina_user
     password: !secret camera_entrada_cocina_password
+  - platform: generic
+    still_image_url: http://192.168.1.252/tmps/auto.jpg
+    stream_source: rtsp://192.168.1.252:554/11
+    name: entrada_casa
+    username: !secret camera_entrada_casa_user
+    password: !secret camera_entrada_casa_password  
 
 
