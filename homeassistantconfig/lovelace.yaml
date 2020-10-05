@@ -45,13 +45,13 @@ views:
         - type: state-icon
           entity: binary_sensor.0x00158d00032614ea_contact
           style:
-            top: 95%
-            left: 53%
+            top: 93%
+            left: 54%
         - type: state-icon
           entity: binary_sensor.0x00158d00034fb778_occupancy
           style:
-            top: 96%
-            left: 59%    
+            top: 94%
+            left: 60%    
         - type: image #state-icon
           entity: camera.entrada_casa
           title: ""
@@ -70,7 +70,7 @@ views:
             width: 10%
       #width: 20%    
     
-        image: /local/mapa_rivas.png
+        image: /local/mapa_rivas2.png
 #      - entity: input_boolean.notify_telegram
 #        hold_action:
 #          action: more-info
