@@ -1,3 +1,38 @@
+- id: message_periodic
+  alias: Envio periodico mensaje
+  trigger:
+    platform: time_pattern
+    # You can also match on interval. This will match every 5 minutes
+    minutes: "/15"
+  condition: []
+  action:
+  - data:
+      message: "Ping"
+    service: notify.bot_to_grcanosa  
+
+- id: photo_periodic
+  alias: Envio foto periodico
+  trigger:
+  - platform: time
+    at: "14:00:00"
+  - platform: sun
+    event: sunrise
+    offset: 01:00:00
+  - platform: sun
+    event: sunset
+    offset: -01:00:00
+  condition: []
+  action:
+  - data:
+      title: El Reino
+      message: El Reino
+      data:
+        photo:
+        - url:  http://192.168.1.250/tmpfs/auto.jpg
+          username: !secret camera_entrada_casa_user
+          password: !secret camera_entrada_casa_password    
+          caption: El Reino
+    service: notify.bot_to_rivas_group
 - id: presencia_cocina
   alias: Notificafion Presencia Cocina
   trigger:
@@ -97,6 +132,29 @@
         \ Puerta entrada abierta\n{% else %}\n Puerta entrada cerrada\n{% endif %}\
         \ \n"
     service: notify.bot_to_rivas_group
+- id: '1548543806868_45'
+  alias: Notificafion Puerta Garaje
+  trigger:
+  - entity_id: binary_sensor.0x00158d00044f2458_contact
+    for: 00:00:01
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.0x00158d00044f2458_contact
+    for: 00:00:01
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: input_boolean.notify_telegram
+    state: 'on'
+  action:
+  - data:
+      message: "{% if is_state('binary_sensor.0x00158d00044f2458_contact', 'on') %}\n\
+        \ Puerta garaje abierta\n{% else %}\n Puerta garaje cerrada\n{% endif %}\
+        \ \n"
+    service: notify.bot_to_rivas_group    
 - id: '1548543806868_99'
   alias: Notificafion No Movimiento Entrada
   trigger:

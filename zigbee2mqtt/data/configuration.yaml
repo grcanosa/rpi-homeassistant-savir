@@ -27,4 +27,10 @@ devices:
     friendly_name: apertura_entrada
     retain: false
   '0x00158d000374adb8':
-    friendly_name: 'boton'
+    friendly_name: boton
+  '0x588e81fffeade22a':
+    friendly_name: enchufe_1
+  '0x00158d00044f2458':
+    friendly_name: apertura_garaje
+  '0x00158d00024d6514':
+    friendly_name: 'movimiento_garaje'

@@ -33,6 +33,21 @@ views:
       - type: picture-elements
         elements:
         - type: state-icon
+          entity: binary_sensor.movimiento_garaje_occupancy
+          style:
+            top: 44%
+            left: 85%
+        - type: state-icon
+          entity: binary_sensor.0x00158d00044f2458_contact
+          style:
+            top: 44%
+            left: 91%
+        - type: state-icon
+          entity: switch.0x588e81fffeade22a_switch
+          style:
+            top: 55%
+            left: 59%    
+        - type: state-icon
           entity: binary_sensor.0x00158d0003d0c052_contact
           style:
             top: 50.5%
@@ -52,7 +67,7 @@ views:
           style:
             top: 94%
             left: 60%    
-        - type: image #state-icon
+        - type: state-icon #state-icon
           entity: camera.entrada_casa
           title: ""
           camera_image: camera.entrada_casa
@@ -122,6 +137,16 @@ views:
         show_header_toggle: false
         title: Cocina
         type: entities
+      - entities:
+          - entity: sensor.0x00158d00044f2458_battery
+          - entity:  sensor.0x00158d00044f2458_linkquality 
+          - entity: sensor.0x588e81fffeade22a_linkquality
+          - entity: sensor.movimiento_garaje_battery
+          - entity: sensor.movimiento_garaje_linkquality
+        show_header_toggle: false
+        title: Garaje
+        state_color: true
+        type: entities    
       - entities:
           - entity: binary_sensor.0x00158d00034fb778_occupancy
           - entity: sensor.tiempo_sin_movimiento_entrada
