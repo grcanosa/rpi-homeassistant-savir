@@ -145,16 +145,16 @@ ffmpeg:
 
 camera:
   - platform: generic
-    still_image_url: http://192.168.1.250/tmpfs/auto.jpg
-    stream_source: rtsp://192.168.1.250:554/11
+    still_image_url: http://192.168.1.101/tmpfs/auto.jpg
+    stream_source: rtsp://192.168.1.101:554/11
     name: entrada_casa
     username: !secret camera_entrada_casa_user
     password: !secret camera_entrada_casa_password
-  - platform: generic
-    still_image_url: http://192.168.1.252/tmps/auto.jpg
-    stream_source: rtsp://192.168.1.252:554/11
-    name: entrada_cocina
-    username: !secret camera_entrada_cocina_user
-    password: !secret camera_entrada_cocina_password  
+#  - platform: generic
+#    still_image_url: http://192.168.1.252/tmps/auto.jpg
+#    stream_source: rtsp://192.168.1.252:554/11
+#    name: entrada_cocina
+#    username: !secret camera_entrada_cocina_user
+#    password: !secret camera_entrada_cocina_password  
 
 

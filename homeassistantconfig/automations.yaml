@@ -28,7 +28,7 @@
       message: El Reino
       data:
         photo:
-        - url:  http://192.168.1.250/tmpfs/auto.jpg
+        - url:  http://192.168.1.101/tmpfs/auto.jpg
           username: !secret camera_entrada_casa_user
           password: !secret camera_entrada_casa_password    
           caption: El Reino
@@ -56,7 +56,7 @@
       message: Foto
       data:
         photo:
-        - url: http://192.168.1.251/tmps/auto.jpg
+        - url: http://192.168.1.101/tmps/auto.jpg
           username: admin
           password: admin
     service: notify.bot_to_rivas_group
@@ -83,7 +83,7 @@
       message: Foto
       data:
         photo:
-        - url: http://192.168.1.252/tmps/auto.jpg
+        - url: http://192.168.1.101/tmps/auto.jpg
           username: admin
           password: admin
     service: notify.bot_to_rivas_group

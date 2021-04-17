@@ -75,14 +75,14 @@ views:
             top: 66%
             left: 54%
       #width: 20%
-        - type: state-icon
-          entity: camera.entrada_cocina
-          title: ""
-          camera_image: camera.entrada_cocina
-          style:
-            top: 45%
-            left: 10%
-            width: 10%
+#        - type: state-icon
+#          entity: camera.entrada_cocina
+#          title: ""
+#          camera_image: camera.entrada_cocina
+#          style:
+#            top: 45%
+#            left: 10%
+#            width: 10%
       #width: 20%    
     
         image: /local/mapa_rivas2.png
@@ -96,12 +96,12 @@ views:
 #        tap_action:
 #          action: toggle
 #        type: button
-      - type: picture-glance
-        title: Cocina
-        entities: 
-        - binary_sensor.0x00158d0003d0c052_contact
-        - binary_sensor.zigbee_puerta_cocina
-        camera_image: camera.entrada_cocina
+#      - type: picture-glance
+#        title: Cocina
+#        entities: 
+#        - binary_sensor.0x00158d0003d0c052_contact
+#        - binary_sensor.zigbee_puerta_cocina
+#        camera_image: camera.entrada_cocina
       - type: picture-glance
         title: Entrada
         entities: 
