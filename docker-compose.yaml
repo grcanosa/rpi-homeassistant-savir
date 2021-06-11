@@ -6,7 +6,7 @@ services:
     image: koenkk/zigbee2mqtt
     volumes:
       - ./zigbee2mqtt/data/:/app/data
-      - ./zigbee2mqtt/zigbee-shepherd-converters/:/app/node_modules/zigbee-shepherd-converters/
+#      - ./zigbee2mqtt/zigbee-shepherd-converters/:/app/node_modules/zigbee-shepherd-converters/
       - ./zigbee2mqtt/lib/extension/homeassistant.js:/app/lib/extension/homeassistant.js
     devices:
       # CC251
@@ -20,9 +20,9 @@ services:
   mosquitto:
     container_name: mosquitto
     image: eclipse-mosquitto
-    ports:
-      - "1883:1883"
-      - "9001:9001"
+#    ports:
+#      - "1883:1883"
+#      - "9001:9001"
     network_mode: host
     volumes:
       - "./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf"
