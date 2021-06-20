@@ -36,7 +36,7 @@
 - id: presencia_cocina
   alias: Notificafion Presencia Cocina
   trigger:
-  - entity_id: binary_sensor.zigbee_puerta_cocina
+  - entity_id: binary_sensor.movimiento_cocina_occupancy
     for: 00:00:01
     from: 'off'
     platform: state
@@ -52,18 +52,18 @@
   - data:
       message: Movimiento en puerta cocina
     service: notify.bot_to_rivas_group
-  - data:
-      message: Foto
-      data:
-        photo:
-        - url: http://192.168.1.101/tmps/auto.jpg
-          username: admin
-          password: admin
-    service: notify.bot_to_rivas_group
+#  - data:
+#      message: Foto
+#      data:
+#        photo:
+#        - url: http://192.168.1.101/tmps/auto.jpg
+#          username: admin
+#          password: admin
+#    service: notify.bot_to_rivas_group
 - id: presencia_entrada
   alias: Notificafion Presencia Entrada
   trigger:
-  - entity_id: binary_sensor.0x00158d00034fb778_occupancy
+  - entity_id: binary_sensor.movimiento_entrada_occupancy
     for: 00:00:01
     from: 'off'
     platform: state
@@ -87,15 +87,42 @@
           username: admin
           password: admin
     service: notify.bot_to_rivas_group
-- id: '1548543806868_2'
-  alias: Notificafion Puerta Cocina
+- id: presencia_garaje
+  alias: Notificafion Presencia Garaje
   trigger:
-  - entity_id: binary_sensor.0x00158d0003d0c052_contact
+  - entity_id: binary_sensor.movimiento_garaje_occupancy
     for: 00:00:01
     from: 'off'
     platform: state
     to: 'on'
-  - entity_id: binary_sensor.0x00158d0003d0c052_contact
+  condition:
+  - condition: state
+    entity_id: input_boolean.notify_telegram
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.fuera_de_casa
+    state: 'on'
+  action:
+  - data:
+      message: Movimiento en puerta garaje
+    service: notify.bot_to_rivas_group
+#  - data:
+#      message: Foto
+#      data:
+#        photo:
+#        - url: http://192.168.1.101/tmps/auto.jpg
+#          username: admin
+#          password: admin
+#    service: notify.bot_to_rivas_group    
+- id: '1548543806868_2'
+  alias: Notificafion Puerta Cocina
+  trigger:
+  - entity_id: binary_sensor.apertura_cocina_contact
+    for: 00:00:01
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.apertura_cocina_contact
     for: 00:00:01
     from: 'on'
     platform: state
@@ -106,18 +133,18 @@
     state: 'on'
   action:
   - data:
-      message: "{% if is_state('binary_sensor.0x00158d0003d0c052_contact', 'on') %}\n\
+      message: "{% if is_state('binary_sensor.apertura_cocina_contact', 'on') %}\n\
         \ Puerta cocina abierta\n{% else %}\n Puerta cocina cerrada\n{% endif %} \n"
     service: notify.bot_to_rivas_group
 - id: '1548543806868_3'
   alias: Notificafion Puerta Entrada
   trigger:
-  - entity_id: binary_sensor.0x00158d00032614ea_contact
+  - entity_id: binary_sensor.apertura_entrada_contact
     for: 00:00:01
     from: 'off'
     platform: state
     to: 'on'
-  - entity_id: binary_sensor.0x00158d00032614ea_contact
+  - entity_id: binary_sensor.apertura_entrada_contact
     for: 00:00:01
     from: 'on'
     platform: state
@@ -128,19 +155,19 @@
     state: 'on'
   action:
   - data:
-      message: "{% if is_state('binary_sensor.0x00158d00032614ea_contact', 'on') %}\n\
+      message: "{% if is_state('binary_sensor.apertura_entrada_contact', 'on') %}\n\
         \ Puerta entrada abierta\n{% else %}\n Puerta entrada cerrada\n{% endif %}\
         \ \n"
     service: notify.bot_to_rivas_group
 - id: '1548543806868_45'
   alias: Notificafion Puerta Garaje
   trigger:
-  - entity_id: binary_sensor.0x00158d00044f2458_contact
+  - entity_id: binary_sensor.apertura_garaje_contact
     for: 00:00:01
     from: 'off'
     platform: state
     to: 'on'
-  - entity_id: binary_sensor.0x00158d00044f2458_contact
+  - entity_id: binary_sensor.apertura_garaje_contact
     for: 00:00:01
     from: 'on'
     platform: state
@@ -151,7 +178,7 @@
     state: 'on'
   action:
   - data:
-      message: "{% if is_state('binary_sensor.0x00158d00044f2458_contact', 'on') %}\n\
+      message: "{% if is_state('binary_sensor.apertura_garaje_contact', 'on') %}\n\
         \ Puerta garaje abierta\n{% else %}\n Puerta garaje cerrada\n{% endif %}\
         \ \n"
     service: notify.bot_to_rivas_group    
@@ -191,6 +218,24 @@
   - data:
       message: Cocina sin movimiento más de 30s
     service: notify.bot_to_rivas_group
+- id: '1648543806868_79'
+  alias: Notificafion No Movimiento Garaje
+  trigger:
+  - entity_id: sensor.tiempo_sin_movimiento_garaje
+    for: 00:00:01
+    platform: state
+    to: '90'
+  condition:
+  - condition: state
+    entity_id: input_boolean.notify_telegram
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.fuera_de_casa
+    state: 'on'
+  action:
+  - data:
+      message: Garaje sin movimiento más de 30s
+    service: notify.bot_to_rivas_group    
 - id: '1548543806868_4'
   alias: Notificafion Activacion Notificaciones
   trigger:
@@ -214,7 +259,7 @@
 - id: '1569690957862_44'
   alias: Boton Activar notificaciones
   trigger:
-  - entity_id: sensor.0x00158d000374adb8_click
+  - entity_id: sensor.boton_click
     platform: state
     to: single
   condition: []

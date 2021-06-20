@@ -1,24 +1,24 @@
-entrada:
-  name: Entrada
+#entrada:
+#  name: Entrada
   #control: hidden
-  entities:
-    - binary_sensor.0x00158d00034fb778_occupancy
-    - binary_sensor.0x00158d00032614ea_contact
-    - sensor.0x00158d00034fb778_battery
-    - sensor.0x00158d00034fb778_linkquality
-    - sensor.0x00158d00032614ea_battery
-    - sensor.0x00158d00032614ea_linkquality
-cocina:
-  name: Cocina
-  #control: hidden
-  entities:
-    - binary_sensor.zigbee_puerta_cocina
-    - binary_sensor.0x00158d0003d0c052_contact
-    - sensor.0x00158d0003d0c052_battery
-    - sensor.0x00158d0003d0c052_linkquality
-    - sensor.0x00158d0003f4772c_illuminance
-    - sensor.0x00158d0003f4772c_battery
-    - sensor.0x00158d0003f4772c_linkquality
+#  entities:
+#    - binary_sensor.0x00158d00034fb778_occupancy
+#    - binary_sensor.0x00158d00032614ea_contact
+#    - sensor.0x00158d00034fb778_battery
+#    - sensor.0x00158d00034fb778_linkquality
+#    - sensor.0x00158d00032614ea_battery
+#    - sensor.0x00158d00032614ea_linkquality
+#cocina:
+#  name: Cocina
+#  #control: hidden
+#  entities:
+#    - binary_sensor.zigbee_puerta_cocina
+#    - binary_sensor.0x00158d0003d0c052_contact
+#    - sensor.0x00158d0003d0c052_battery
+#    - sensor.0x00158d0003d0c052_linkquality
+#    - sensor.0x00158d0003f4772c_illuminance
+#    - sensor.0x00158d0003f4772c_battery
+#    - sensor.0x00158d0003f4772c_linkquality
     
 zigbee:
   name: Zigbee

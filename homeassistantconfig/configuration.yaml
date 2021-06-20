@@ -112,7 +112,7 @@ sensor:
     json_attributes_topic: zigbee2mqtt/bridge/networkmap/raw
   - platform: "mqtt"
     unique_id: "time_with_no_occupancy_entrada"
-    name: "Tiempo sin movimiento"
+    name: "Tiempo sin movimiento Entrada"
     state_topic: "zigbee2mqtt/movimiento_entrada"
     availability_topic: "zigbee2mqtt/bridge/state"
     unit_of_measurement: "s"
@@ -120,12 +120,20 @@ sensor:
     value_template: "{{ value_json.no_occupancy_since }}"
   - platform: "mqtt"
     unique_id: "time_with_no_occupancy_cocina"
-    name: "Tiempo sin movimiento"
+    name: "Tiempo sin movimiento Cocina"
     state_topic: "zigbee2mqtt/movimiento_cocina"
     availability_topic: "zigbee2mqtt/bridge/state"
     unit_of_measurement: "s"
     #device_class: "timestamp"
     value_template: "{{ value_json.no_occupancy_since }}"  
+  - platform: "mqtt"
+    unique_id: "time_with_no_occupancy_garaje"
+    name: "Tiempo sin movimiento Garaje"
+    state_topic: "zigbee2mqtt/movimiento_garaje"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    unit_of_measurement: "s"
+    #device_class: "timestamp"
+    value_template: "{{ value_json.no_occupancy_since }}"      
     
     
 lovelace:

@@ -38,32 +38,32 @@ views:
             top: 44%
             left: 85%
         - type: state-icon
-          entity: binary_sensor.0x00158d00044f2458_contact
+          entity: binary_sensor.apertura_garaje_contact
           style:
             top: 44%
             left: 91%
         - type: state-icon
-          entity: switch.0x588e81fffeade22a_switch
+          entity: switch.enchufe_1
           style:
             top: 55%
             left: 59%    
         - type: state-icon
-          entity: binary_sensor.0x00158d0003d0c052_contact
+          entity: binary_sensor.movimiento_cocina_occupancy
           style:
             top: 50.5%
             left: 8%
         - type: state-icon
-          entity: binary_sensor.zigbee_puerta_cocina
+          entity: binary_sensor.apertura_cocina_contact
           style:
             top: 58%
             left: 8%
         - type: state-icon
-          entity: binary_sensor.0x00158d00032614ea_contact
+          entity: binary_sensor.apertura_entrada_contact
           style:
             top: 93%
             left: 54%
         - type: state-icon
-          entity: binary_sensor.0x00158d00034fb778_occupancy
+          entity: binary_sensor.movimiento_entrada_occupancy
           style:
             top: 94%
             left: 60%    
@@ -105,8 +105,8 @@ views:
       - type: picture-glance
         title: Entrada
         entities: 
-        - binary_sensor.0x00158d00032614ea_contact
-        - binary_sensor.0x00158d00034fb778_occupancy
+        - binary_sensor.apertura_entrada_contact
+        - binary_sensor.movimiento_entrada_occupancy
         camera_image: camera.entrada_casa
       - type: custom:auto-entities
         card:
@@ -115,7 +115,7 @@ views:
         filter:
           include:
           - domain: automation    
-      - entity: weather.casa
+      - entity: weather.home
         type: weather-forecast
 #      - type: glance
 #        entities:
@@ -126,21 +126,20 @@ views:
   - badges: []
     cards:
       - entities:
-          - entity: binary_sensor.zigbee_puerta_cocina
-          - entity: sensor.tiempo_sin_movimiento_cocina
-          - entity: binary_sensor.0x00158d0003d0c052_contact
-          - entity: sensor.0x00158d0003d0c052_linkquality
-          - entity: sensor.0x00158d0003f4772c_illuminance
-          - entity: sensor.0x00158d0003f4772c_linkquality
-          - entity: sensor.0x00158d0003d0c052_battery
-          - entity: sensor.0x00158d0003f4772c_battery
+          - entity: binary_sensor.movimiento_cocina_occupancy
+          - entity: sensor.tiempo_sin_movimiento_2
+          - entity: binary_sensor.apertura_cocina_contact
+          - entity: sensor.apertura_cocina_linkquality
+          - entity: sensor.movimiento_cocina_illuminance
+          - entity: sensor.movimiento_cocina_linkquality
+          - entity: sensor.apertura_cocina_battery
+          - entity: sensor.movimiento_cocina_battery
         show_header_toggle: false
         title: Cocina
         type: entities
       - entities:
-          - entity: sensor.0x00158d00044f2458_battery
-          - entity:  sensor.0x00158d00044f2458_linkquality 
-          - entity: sensor.0x588e81fffeade22a_linkquality
+          - entity: sensor.apertura_garaje_battery
+          - entity:  sensor.apertura_garaje_linkquality 
           - entity: sensor.movimiento_garaje_battery
           - entity: sensor.movimiento_garaje_linkquality
         show_header_toggle: false
@@ -148,22 +147,22 @@ views:
         state_color: true
         type: entities    
       - entities:
-          - entity: binary_sensor.0x00158d00034fb778_occupancy
-          - entity: sensor.tiempo_sin_movimiento_entrada
-          - entity: binary_sensor.0x00158d00032614ea_contact
-          - entity: sensor.0x00158d00034fb778_linkquality
-          - entity: sensor.0x00158d00032614ea_linkquality
-          - entity: sensor.0x00158d00032614ea_battery
-          - entity: sensor.0x00158d00034fb778_battery
+          - entity: binary_sensor.movimiento_entrada_occupancy
+          - entity: sensor.tiempo_sin_movimiento
+          - entity: binary_sensor.apertura_entrada_contact
+          - entity: sensor.movimiento_entrada_linkquality
+          - entity: sensor.apertura_entrada_linkquality
+          - entity: sensor.movimiento_entrada_battery
+          - entity: sensor.apertura_entrada_battery
         show_header_toggle: false
         title: Entrada
         state_color: true
         type: entities
       - entities:
-          - entity: sensor.0x00158d000374adb8_click
-          - entity: sensor.0x00158d000374adb8_action
-          - entity: sensor.0x00158d000374adb8_battery
-          - entity: sensor.0x00158d000374adb8_linkquality
+          - entity: sensor.boton_click
+          - entity: sensor.boton_action
+          - entity: sensor.boton_battery
+          - entity: sensor.boton_linkquality
         title: Boton
         type: entities  
       - entities:
