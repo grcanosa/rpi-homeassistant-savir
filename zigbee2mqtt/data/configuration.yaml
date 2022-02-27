@@ -33,8 +33,10 @@ devices:
   '0x00158d00044f2458':
     friendly_name: apertura_garaje
   '0x00158d00024d6514':
-    friendly_name: 'movimiento_garaje'
+    friendly_name: movimiento_garaje
     no_occupancy_since:
       - 60
       - 90
-    occupancy_timeout: 60  
+    occupancy_timeout: 60
+  '0x00158d0004a00841':
+    friendly_name: 'temp_ext'

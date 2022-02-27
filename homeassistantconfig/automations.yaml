@@ -159,6 +159,14 @@
         \ Puerta entrada abierta\n{% else %}\n Puerta entrada cerrada\n{% endif %}\
         \ \n"
     service: notify.bot_to_rivas_group
+  - data:
+      message: Foto
+      data:
+        photo:
+        - url: http://192.168.1.101/tmps/auto.jpg
+          username: admin
+          password: admin
+    service: notify.bot_to_rivas_group    
 - id: '1548543806868_45'
   alias: Notificafion Puerta Garaje
   trigger:

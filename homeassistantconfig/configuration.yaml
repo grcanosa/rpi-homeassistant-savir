@@ -158,6 +158,18 @@ camera:
     name: entrada_casa
     username: !secret camera_entrada_casa_user
     password: !secret camera_entrada_casa_password
+  - platform: generic
+    still_image_url: http://192.168.1.102/api/v1/snap.cgi?chn=0
+    stream_source: rtsp://192.168.1.102:554/live/ch0
+    name: garaje
+    username: !secret camera_garaje_user
+    password: !secret camera_garaje_password  
+  - platform: generic
+    still_image_url: http://192.168.1.103/api/v1/snap.cgi?chn=0
+    stream_source: rtsp://192.168.1.103:554/live/ch0
+    name: cocina
+    username: !secret camera_cocina_user
+    password: !secret camera_cocina_password  
 #  - platform: generic
 #    still_image_url: http://192.168.1.252/tmps/auto.jpg
 #    stream_source: rtsp://192.168.1.252:554/11

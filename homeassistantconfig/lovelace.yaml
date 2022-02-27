@@ -108,6 +108,14 @@ views:
         - binary_sensor.apertura_entrada_contact
         - binary_sensor.movimiento_entrada_occupancy
         camera_image: camera.entrada_casa
+      - type: picture-glance
+        title: Garaje
+        entities: []
+        camera_image: camera.garaje  
+      - type: picture-glance
+        title: Cocina
+        entities: []
+        camera_image: camera.cocina  
       - type: custom:auto-entities
         card:
           type: entities
