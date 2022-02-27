@@ -74,6 +74,20 @@ views:
           style:
             top: 66%
             left: 54%
+        - type: state-icon
+          entity: camera.cocina
+          title: ""
+          camera_image: camera.cocina
+          style:
+            top: 43%
+            left: 17%     
+        - type: state-icon
+          entity: camera.garaje
+          camera_image: camera.garaje
+          title: ""
+          style:
+            top: 55%
+            left: 90%    
       #width: 20%
 #        - type: state-icon
 #          entity: camera.entrada_cocina
@@ -110,11 +124,15 @@ views:
         camera_image: camera.entrada_casa
       - type: picture-glance
         title: Garaje
-        entities: []
+        entities: 
+        - binary_sensor.apertura_garaje_contact
+        - binary_sensor.movimiento_garaje_occupancy
         camera_image: camera.garaje  
       - type: picture-glance
         title: Cocina
-        entities: []
+        entities: 
+        - binary_sensor.apertura_cocina_contact
+        - binary_sensor.movimiento_cocina_occupancy
         camera_image: camera.cocina  
       - type: custom:auto-entities
         card:
